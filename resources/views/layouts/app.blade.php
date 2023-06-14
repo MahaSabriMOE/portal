@@ -81,5 +81,9 @@
             @yield('content')
         </main>
     </div>
+    <div>
+        @include('layouts.footer')
+    </div>
+    
 </body>
 </html>

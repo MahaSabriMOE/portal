@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostsController extends Controller
 {
@@ -14,7 +15,9 @@ class PostsController extends Controller
     public function index()
     {
         //
-        return view('blog.index');
+        
+        return view('blog.index')
+        ->with('posts',Post::get());
     }
 
     /**
@@ -24,6 +27,8 @@ class PostsController extends Controller
      */
     public function create()
     {
+
+        return view ('blog.create');
         //
     }
 
@@ -35,6 +40,12 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required | mime:jpg,png,jpeg | max:5048',
+
+        ]);
         //
     }
 

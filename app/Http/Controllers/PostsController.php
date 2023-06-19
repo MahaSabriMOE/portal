@@ -113,12 +113,23 @@ class PostsController extends Controller
      */
     public function update(Request $request, $slug)
     {
+
+        /* $request->validate([
+            'title' => 'required',
+            'postText' => 'required',
+            'postImg' => ['required','mimes:jpeg,png,bmp'],
+
+        ]);*/ 
+
+        $newImageName=uniqid() . '-' . $slug . '.' . $request->postImg->extension();
+        $request->postImg->move(public_path('images_folder'),$newImageName);
+
         Post::where('slug',$slug)
         ->update([
             'title'=> $request->input('title'),
             'descriptions'=>$request->input('postText'),
             'slug'=>$slug,
-            
+            'image_path'=>$newImageName,
             'user_id'=>auth()->user()->id
 
 
@@ -136,8 +147,13 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
+
+        Post::where('slug',$slug)->delete();
+        return redirect('/blog')
+        ->withSuccess('تم الحذف بنجاح');
+
         //
     }
 }

@@ -26,9 +26,18 @@
     </div>
 </div>
 @if(Auth::user() && Auth::user()->id == $post->user_id)
-<div>
-    <a href="/blog/{{ $post->slug }}/edit">Edit Post</a>
-</div>
+        <div>
+        <a href="/blog/{{ $post->slug }}/edit">Edit Post</a>
+        </div>
+        <form action="/blog/{{ $post->slug }}" method="POST">
+            @csrf
+            @method('delete')
+            <div>
+                <button type="submit" class="btn btn-danger" onclick="return confirm('{{ __('Are you sure you want to delete?') }}')">Delete Post</button>
+                </div>
+
+        </form>
+        
 @endif
 
 

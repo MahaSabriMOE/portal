@@ -9,6 +9,12 @@
 <div class="">
     <h1>All Posts maha</h1>
 </div>
+
+@if (session()->has('success'))
+        <div class="alert alert-info">
+           <h1>{!! session()->get('success')!!} </h1>        
+        </div>
+@endif
 @if (Auth::check())
 <div>
   <a href="/blog/create">Create Post</a>

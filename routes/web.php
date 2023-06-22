@@ -21,5 +21,6 @@ use App\Http\Controllers\PostsController;
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/', [App\Http\Controllers\MySite::class, 'index'])->name('myhome');
+Route::get('/', [App\Http\Controllers\MySite::class, 'index']);
+
 Route::resource('/blog', PostsController::class);

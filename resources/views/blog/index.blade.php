@@ -23,34 +23,26 @@
     @if (Auth::check())
       <a href="/blog/create" class="btn btn-success my-3 mx-2">أنشئ موضوعاً جديداً</a>
     @endif
-  
+    <div class="card-deck">
+    @foreach ($posts as $post)
 
-   <div class="row justify-content-right">
-
-  <!-- only loop the columns -->
-  @foreach ($posts as $post)
-  <div class="col-sm-3 p-2"> <!-- not "col-sm-3" -->
-    <div class="card ">
-      <img class="card-img" src="/images_folder/{{ $post->image_path }}" alt="Responsive image">
+    <div class="card">
+      <img class="card-img-top" src="images_folder/{{ $post->image_path }}" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">{{ $post->title }}</h5>
-    <p class="card-text col-5 text-truncate">{{ $post->descriptions }}</p>
-
-    <div>
-      <span>By.{{$post->user->name}}</span>
-      <span>On:{{date('d-m-Y',strtotime($post->updated_at))}}</span>
-    </div>
-    <a href="/blog/{{ $post->slug }}" class="btn btn-primary">للمزيد من التفاصيل</a>
+        <h5 class="card-title">{{  $post->title }}</h5>
+        <p class="card-text text-truncate">{{  $post->descriptions }}</p>
+        <a href="/blog/{{ $post->slug }}" class="btn btn-primary">أقرأ المزيد</a>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated On:{{date('d-m-Y',strtotime($post->updated_at))}}</small>
+        <small>By.{{$post->user->name}}</small>
       </div>
     </div>
-  </div>
-  @endforeach
-
+       
+    @endforeach
+    </div><!--cards conrainer-->
+    
 </div>
-
-
-
-
 
 
 

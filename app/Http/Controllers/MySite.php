@@ -10,8 +10,9 @@ class MySite extends Controller
 {
     public function index(){
 
-        $postsCount=Post::get()->count();
-        return view('index',compact('postsCount'));
+       
+
+       return view('index')->with('postsCount',Post::all()->count());
         
 
     }

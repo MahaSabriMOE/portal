@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
 @if (session()->has('success'))
         <div class="alert alert-success">
            <h1>{!! session()->get('success')!!} </h1>        
@@ -10,10 +12,11 @@
   
 
 <h1>this is show post page</h1>
-<div class="row">
+<div class="row mx-auto">
 
     <div class="col">
-      <img src="/images_folder/{{ $post->image_path }}">
+      
+      <img class="img-thumbnail" src="/images_folder/{{ $post->image_path }}">
     </div>
     <div class="col">
        <h2>{{ $post->title }}</h2>
@@ -24,7 +27,19 @@
           
         </div>
     </div>
-</div>
+    <div class="content ">              
+      <div class="wpb_video_wrapper mx-auto">
+        <x-embed url="https://www.youtube.com/watch?v=oHg5SJYRHA0" />
+		</div>
+	</div>
+
+    </div>
+     
+  </div>
+  
+  
+
+
 @if(Auth::user() && Auth::user()->id == $post->user_id)
         <div>
         <a href="/blog/{{ $post->slug }}/edit">Edit Post</a>

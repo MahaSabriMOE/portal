@@ -7,7 +7,7 @@
     @csrf
     <div class="form-group py-2">
       <label for="title">Title</label>
-      <input type="text" name="title" class="form-control" id="title" aria-describedby="tilte" placeholder="Enter Title">
+      <input type="text" name="title" class="form-control" id="title" aria-describedby="title" placeholder="Enter Title">
     </div>
     
 
@@ -19,6 +19,11 @@
         <label for="postImg">Coose Image</label>
         <input type="file" class="form-control" id="postImg" name="postImg">
       
+    </div>
+
+    <div class="form-group py-2">
+      <label for="yturl">Video Link</label>
+      <input type="text" name="yturl" class="form-control" id="yturl" aria-describedby="yturl" placeholder="Enter YouTube URL">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

@@ -62,13 +62,14 @@ class PostsController extends Controller
             'descriptions'=>$request->input('postText'),
             'slug'=>$slug,
             'image_path'=>$newImageName,
-            'user_id'=>auth()->user()->id
+            'user_id'=>auth()->user()->id,
+            'yturl'=>$request->input('yturl')
 
 
         ]);
 
         return redirect('/blog');
-       // dd($newImageName);
+       //dd($request);
 
         
 
@@ -85,8 +86,9 @@ class PostsController extends Controller
     public function show($slug)
     {
         //
-        return view('blog.show')
+       return view('blog.show')
         ->with('post',Post::where('slug',$slug)->first());
+       // dd(Post::where('slug',$slug)->first());
     }
 
     /**
@@ -130,7 +132,8 @@ class PostsController extends Controller
             'descriptions'=>$request->input('postText'),
             'slug'=>$slug,
             'image_path'=>$newImageName,
-            'user_id'=>auth()->user()->id
+            'user_id'=>auth()->user()->id,
+            'yturl'=>$request->input('yturl')
 
 
         ]);

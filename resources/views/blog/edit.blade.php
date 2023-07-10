@@ -10,7 +10,7 @@
 
     <div class="form-group py-2">
       <label for="title">Title</label>
-      <input type="text" name="title" class="form-control" id="title" aria-describedby="tilte" value="{{ $post->title }}">
+      <input type="text" name="title" class="form-control" id="title" aria-describedby="title" value="{{ $post->title }}">
     </div>
     
 
@@ -22,6 +22,11 @@
         <label for="postImg">Coose Image</label>
         <input type="file" class="form-control" id="postImg" name="postImg">
       
+    </div>
+
+    <div class="form-group py-2">
+      <label for="yturl">Video</label>
+      <input type="text" name="yturl" class="form-control" id="yturl" aria-describedby="yturl" value="{{ $post->yturl }}">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

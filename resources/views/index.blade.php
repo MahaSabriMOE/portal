@@ -23,6 +23,8 @@ height: 400px;
 </div>
 </div>
 <!-- Hero -->
+</header>
+
 
   
   
@@ -69,6 +71,12 @@ height: 400px;
                 </div>
            </div>
   </div>
-</header>
+
+  
+
+  
+
+
+
 
 @endsection

@@ -23,11 +23,12 @@
     @if (Auth::check())
       <a href="/blog/create" class="btn btn-success my-3 mx-2">أنشئ موضوعاً جديداً</a>
     @endif
+    
     <div class="card-deck">
     @foreach ($posts as $post)
 
     <div class="card">
-      <img class="card-img-top" src="images_folder/{{ $post->image_path }}" alt="Card image cap">
+      <img class="card-img-top img-thumbnail" src="images_folder/{{ $post->image_path }}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{  $post->title }}</h5>
         <p class="card-text text-truncate">{{  $post->descriptions }}</p>

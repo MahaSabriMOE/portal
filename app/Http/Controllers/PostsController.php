@@ -9,6 +9,8 @@ use Illuminate\Support\Str;
 
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class PostsController extends Controller
 {
@@ -153,10 +155,22 @@ class PostsController extends Controller
     public function destroy($slug)
     {
 
+        $image_path = Post::where('slug', $slug)->pluck('image_path')->first();
+        if(file_exists(public_path('images_folder/'. $image_path))){
+            unlink(public_path('images_folder/'. $image_path));
+          }else{
+            dd('File not found');
+          }
+       // dd('public/images_folder/'.$image_path);
+        
+
         Post::where('slug',$slug)->delete();
+        //File::delete('public/images_folder/'.$image_path);
         return redirect('/blog')
         ->withSuccess('تم الحذف بنجاح');
 
         //
     }
+
+   
 }

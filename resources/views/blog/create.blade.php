@@ -22,7 +22,7 @@
     </div>
 
     <div class="form-group py-2">
-      <label for="yturl">Video Link</label>
+      <label for="yturl">Video ID</label>
       <input type="text" name="yturl" class="form-control" id="yturl" aria-describedby="yturl" placeholder="Enter YouTube URL">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>

@@ -27,15 +27,18 @@
           
         </div>
     </div>
-    <div class="content ">              
-      <div class="wpb_video_wrapper mx-auto">
-        <x-embed url="https://www.youtube.com/watch?v=oHg5SJYRHA0" />
-		</div>
-	</div>
+
+
+    <div>
+
+      <object width="425" height="350" data="http://www.youtube.com/v/{{ $post->yturl }}" type="application/x-shockwave-flash"><param name="src" value="http://www.youtube.com/v/Ahg6qcgoay4" /></object>
 
     </div>
-     
-  </div>
+    
+      
+	
+
+    
   
   
 

@@ -22,6 +22,8 @@
   
     @if (Auth::check())
       <a href="/blog/create" class="btn btn-success my-3 mx-2">أنشئ موضوعاً جديداً</a>
+     
+
     @endif
     
     <div class="card-deck">
